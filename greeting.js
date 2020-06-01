@@ -16,6 +16,7 @@ function refresh() {
     greeting.classList.remove(SHOWING_CN);
     hideDeleteBtn();
     form.classList.add(SHOWING_CN);
+    input.value="";
 }
 
 function handleDeleteBtn(event) {
