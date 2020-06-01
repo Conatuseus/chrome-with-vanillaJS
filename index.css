@@ -22,3 +22,11 @@ body {
 .showing {
     display: block;
 }
+
+.showingBtn {
+    display: block;
+}
+
+.deleting {
+    display: none;
+}
