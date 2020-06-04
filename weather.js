@@ -1,4 +1,5 @@
 const weather = document.querySelector(".js-weather");
+const coordsDelBtn = document.createElement("button");
 const API_KEY = "15b4f215ee8a4b59fc4d3b15227d1e3b";
 const COORDS = "coords";
 
@@ -9,7 +10,6 @@ function deleteCoords() {
 }
 
 function handleCoords() {
-    const coordsDelBtn = document.createElement("button");
     coordsDelBtn.innerText = "위치 정보 삭제";
     coordsDelBtn.addEventListener("click",deleteCoords);
     clockContainer.appendChild(coordsDelBtn);
