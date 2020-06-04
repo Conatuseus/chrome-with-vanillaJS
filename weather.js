@@ -2,6 +2,18 @@ const weather = document.querySelector(".js-weather");
 const API_KEY = "15b4f215ee8a4b59fc4d3b15227d1e3b";
 const COORDS = "coords";
 
+function deleteCoords() {
+    localStorage.removeItem(COORDS);
+    weather.remove();
+    coordsDelBtn.remove();
+}
+
+function handleCoords() {
+    const coordsDelBtn = document.createElement("button");
+    coordsDelBtn.innerText = "위치 정보 삭제";
+    coordsDelBtn.addEventListener("click",deleteCoords);
+    clockContainer.appendChild(coordsDelBtn);
+}
 
 function getWeather(lat, lng) {
     fetch(
@@ -28,6 +40,7 @@ function handleGeoSuccess(position) {
     };
     saveCoords(coordsObj);
     getWeather(latitude, longitude);
+    handleCoords();
 }
 
 function handleGeoError() {
@@ -46,6 +59,7 @@ function loadCoords() {
     else {
         const parseCoords = JSON.parse(loadedCoords);
         getWeather(parseCoords.latitude, parseCoords.longitude);
+        handleCoords();
     }
 }
 
